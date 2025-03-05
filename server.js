@@ -65,8 +65,25 @@ app.get('/', (req, res) => {
 });
 
 app.get('/menu', (req, res) => {
+    const menu = RESTAURANT.menu;
+    let mains = [];
+    let desserts = [];
+    let sides = [];
+
+    menu.forEach(item => {
+        if (item.category === 'mains') {
+            mains.push(item);
+        } else if (item.category === 'desserts') {
+            desserts.push(item);
+        } else if (item.category === 'sides') {
+            sides.push(item);
+        }
+    });
     
     res.render('menu.ejs', {
+        mains: mains,
+        desserts: desserts,
+        sides: sides,
         menu: RESTAURANT.menu
     });
 });

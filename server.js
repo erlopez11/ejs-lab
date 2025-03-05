@@ -95,7 +95,7 @@ app.get('/menu/:category', (req, res) => {
 
    let categoryHeading = index.charAt(0).toUpperCase() + index.slice(1);
 
-   console.log(filteredItems);
+   
 
     
 
